@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Drinks Meter App</string>
+    <string name="appwidget_text">EXAMPLE</string>
+    <string name="add_widget">Add widget</string>
+    <string name="coffee_cups">Coffee cups</string>
+    <string name="water_cups">Water glasses</string>
+    <string name="title">Measure your drinks!</string>
+    <string name="zero">0</string>
+</resources>
