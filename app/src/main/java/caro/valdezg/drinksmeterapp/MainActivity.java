@@ -60,14 +60,12 @@ public class MainActivity extends AppCompatActivity {
     public void onClickOnWaterGlass() {
         int count = Integer.valueOf(mNumberOfWaterGlasses.getText().toString()) + 1;
         updateSharedPreferences(count, WATER);
-        mNumberOfWaterGlasses.setText(String.valueOf(count));
     }
 
     @OnClick(R.id.coffee_cup_image_view)
     public void onClickOnCoffeeCups() {
         int  count = Integer.valueOf(mNumberOfCoffeeCups.getText().toString()) + 1;
         updateSharedPreferences(count, COFFEE);
-        mNumberOfCoffeeCups.setText(String.valueOf(count));
     }
 
     private void updateSharedPreferences(int count, String drink) {
@@ -82,6 +80,11 @@ public class MainActivity extends AppCompatActivity {
                     String.valueOf(count));
         editor.apply();
 
+        if (drink.equals(COFFEE))
+            mNumberOfCoffeeCups.setText(String.valueOf(count));
+        else
+            mNumberOfWaterGlasses.setText(String.valueOf(count));
+
         Intent intent = new Intent(this, DrinksWidget.class);
         intent.setAction("android.appwidget.action.APPWIDGET_UPDATE");
         int ids[] = AppWidgetManager.getInstance(getApplication()).getAppWidgetIds(
@@ -94,6 +97,12 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+    }
+
+    @OnClick(R.id.reset_button)
+    public void onClickResetButton() {
+        updateSharedPreferences(0, COFFEE);
+        updateSharedPreferences(0, WATER);
     }
 
 }

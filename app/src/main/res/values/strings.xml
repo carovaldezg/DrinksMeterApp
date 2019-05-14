@@ -6,4 +6,5 @@
     <string name="water_cups">Water glasses</string>
     <string name="title">Measure your drinks!</string>
     <string name="zero">0</string>
+    <string name="reset">Reset values</string>
 </resources>
